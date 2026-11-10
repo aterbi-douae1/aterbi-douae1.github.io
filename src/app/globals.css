@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Six thèmes : variables RGB (canaux) pour que Tailwind gère l'opacité. */
+:root, [data-theme="midnight"] {
+  --bg: 16 27 45; --surface: 24 40 64; --ink: 244 247 250; --muted: 160 177 196; --line: 38 63 91; --accent: 85 200 216; --accent-ink: 16 27 45;
+}
+[data-theme="clair"] {
+  --bg: 244 247 250; --surface: 255 255 255; --ink: 16 27 45; --muted: 74 94 115; --line: 207 218 229; --accent: 14 116 144; --accent-ink: 255 255 255;
+}
+[data-theme="ardoise"] {
+  --bg: 30 35 43; --surface: 40 47 58; --ink: 238 241 245; --muted: 160 170 182; --line: 62 71 85; --accent: 148 197 224; --accent-ink: 30 35 43;
+}
+[data-theme="ocean"] {
+  --bg: 8 36 54; --surface: 14 52 75; --ink: 236 247 250; --muted: 150 186 200; --line: 28 74 98; --accent: 94 214 196; --accent-ink: 8 36 54;
+}
+[data-theme="foret"] {
+  --bg: 15 36 32; --surface: 22 51 45; --ink: 240 247 243; --muted: 156 186 175; --line: 36 74 66; --accent: 142 214 168; --accent-ink: 15 36 32;
+}
+[data-theme="prune"] {
+  --bg: 30 24 48; --surface: 42 34 66; --ink: 245 243 250; --muted: 176 168 200; --line: 66 56 98; --accent: 190 170 240; --accent-ink: 30 24 48;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: rgb(var(--bg)); color: rgb(var(--ink)); font-family: "Instrument Sans Variable", system-ui, sans-serif; transition: background-color .35s ease, color .35s ease; -webkit-font-smoothing: antialiased; }
+::selection { background: rgb(var(--accent) / .35); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
